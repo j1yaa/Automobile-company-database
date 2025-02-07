@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLAP GUI</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+</head>
+
+<h1 class="title">Generate OLAP Results</h1>
+<body>
+  <form class="example" method="post" action="">
+      <button type="submit" id="generate" value="Submit" >Generate<i class="fa fa-search"></i>
+      </button>
+    </div>
+  </form>
+    
+  <body id="results">
+    <table class="table is-fullwidth" id="profit">  
+      <thead>
+        <tr>
+          <th>Yearly Profits(USD)</th>
+            <tr> <th> 2027 </th>
+                <td>{{results.get('2027p',[0])[0]}}</td>
+            </tr>
+            <tr>
+                <th> 2026 </th>
+                <td>{{results.get('2026p',[0])[0]}}</td>
+            </tr>
+            <tr>
+                <th> 2025 </th>
+                <td>{{results.get('2025p',[0])[0]}}</td>
+            </tr>
+            <tr>
+                <th> 2024 </th>
+                <td>{{results.get('2024p',[0])[0]}}</td>
+            </tr>
+            <tr>
+                <th> 2023 </th>
+                <td>{{results.get('2023p',[0])[0]}}</td>
+            </tr>
+            <tr>
+                <th> 2022 </th>
+                <td>{{results.get('2022p',[0])[0]}}</td>
+            </tr>
+        </tr>
+      <thead>
+    </table>
+
+    <h2 class="subtitle">Various Statistics Spanning All Six Years(All In USD)</h2>
+    <table class="table is-fullwidth" id="profit">  
+        <thead>
+          <th>Total Profit</th>
+            <tr>
+              <td>{{results.get('ova',[0])[0]}}</td>
+            </tr>  
+          <th>Average Yearly Profit</th>
+            <tr>
+              <td>{{results.get('avg',[0])[0]}}</td>
+            </tr>  
+          <th>Dealer Contribution</th>
+          {% for DealerId, contribution in results['dealers'] %}
+            <tr>
+              <td>{{DealerId}}({{contribution}})</td>
+            </tr>
+          {% endfor %}
+        </thead>
+      </table>
+    <table class="table is-fullwidth" id="best selling">  
+          <th>Overall Best-Selling Brand</th>
+          <th>Overall Best-Selling Color</th>
+          <th>Overall Best-Selling Part</th>
+        <tr>             
+          <td>{{results.get('bbrand',[0])[0]}}</td>
+          <td>{{results.get('bcolor',[0])[0]}}</td>
+          <td>{{results.get('bpart',[0])[0]}}</td>
+                
+        </tr>
+    </table>
+  </body>
+</body>
+
+</html>
