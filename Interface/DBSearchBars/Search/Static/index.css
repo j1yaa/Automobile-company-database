@@ -1,0 +1,65 @@
+h1{
+  text-align:center;
+}
+
+#b1{
+  border:none; 
+  width: 6em; 
+  height: 2em; 
+  background-color:  lightgrey;
+  position: absolute;
+  top:75px; 
+  left:500px
+}
+#b2{
+  border:none; 
+  width: 6em; 
+  height: 2em; 
+  background-color:  lightgrey;
+  position: absolute;
+  top:75px; 
+  right:735px
+}
+
+#b3{
+  border:none; 
+  width: 6em; 
+  height: 2em; 
+  background-color:  lightgrey;
+  position: absolute;
+  top:75px; 
+  right:500px
+}
+
+#searchBar{
+text-align:center;
+width:350px;
+
+}
+#search {
+  border:none; 
+  width: 6em; 
+  height: 2em; 
+  background-color:  lightgrey;
+  position: absolute;
+  top:55px; 
+  right:430px
+}
+
+#generate {
+  border:none; 
+  width: 6em; 
+  height: 2em; 
+  background-color:  lightgrey;
+  position: absolute;
+  top:65px; 
+  right:710px
+}
+
+#results{
+  text-align:center ;
+}
+
+#titles{
+  margin-top:50px
+}
